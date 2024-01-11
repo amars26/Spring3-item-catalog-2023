@@ -1,0 +1,29 @@
+<section class="content-header" th:fragment="navigationbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="/">
+            <i class="fas fa-rocket"></i> <!-- Replace 'fa-icon' with the Font Awesome icon class you want to use -->
+            <span class="smaller-text" th:if="${#authorization.expression('isAuthenticated()') == true}" th:text="${username}"></span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"  th:if="${#authorization.expression('isAuthenticated()') == false}">
+                    <a class="nav-link" href="/register">Registracija</a>
+                </li>
+                <li class="nav-item"  th:if="${#authorization.expression('isAuthenticated()') == false}">
+                    <a class="nav-link" href="/login">Prijava</a>
+                </li>
+                <li class="nav-item"  th:if="${#authorization.expression('isAuthenticated()') == true}">
+                    <a class="nav-link" href="/add">Dodaj artikl</a>
+                </li>
+                <li class="nav-item"  th:if="${#authorization.expression('isAuthenticated()') == true}">
+                    <a class="nav-link" href="/logout">Odjava</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</section>

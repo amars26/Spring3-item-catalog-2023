@@ -1,0 +1,26 @@
+/* Add custom styles if needed */
+        .top-padded {
+            padding-top: 80px; /* Adjusted for fixed navbar height */
+        }
+
+        /* Add left padding to the navbar */
+        .navbar-brand {
+            padding-left: 30px; /* Adjust the value as needed */
+        }
+        .card-description {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .fixed-image {
+            width: 100%; /* Set your desired fixed width */
+            height: 260px; /* Set your desired fixed height */
+            object-fit: cover; /* Optional: Maintain aspect ratio and cover the container */
+        }
+        .cards-container {
+            margin-bottom: 20px; /* Set your desired padding value */
+        }
+
+        .smaller-text {
+            font-size: 0.9em; /* Adjust the size as needed */
+        }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+
+
+    <title>Detalji</title>
+</head>
+
+<body>
+<section class="content-header" th:replace="~{navbar::navigationbar}"></section>
+
+    <div class="container mt-5 top-padded">
+        <form th:action="@{/process_item}" method="post" enctype='multipart/form-data'>
+
+            <!-- Image Preview -->
+            <img th:src="'/images/' + ${item.image}" alt="Item Image" class="img-fluid mb-3" /><br>
+
+            <!-- File Input -->
+            <div class="form-group">
+                <label for="newImage">Odaberi novu sliku</label>
+                <input type="file" class="form-control-file" id="newImage" name="newimage" accept="image/*">
+            </div>
+
+            <!-- Name Input -->
+            <div class="form-group">
+                <label for="name">Naziv</label>
+                <input type="text" class="form-control" id="name" name="name" th:value="${item.name}" required>
+            </div>
+
+            <!-- Hidden ID Input -->
+            <input type="hidden" th:value="${item.id}" name="id" readonly/>
+
+            <!-- Description Input -->
+            <div class="form-group">
+                <label for="description">Opis</label>
+                <input type="text" class="form-control" id="description" name="description" th:value="${item.description}" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary mt-3">Izmjena</button>
+        </form>
+
+        <!-- Delete Form -->
+        <form th:action="@{/delete_item}" method="post" class="mt-3">
+            <input type="hidden" th:value="${item.id}" name="id" readonly/>
+            <button type="submit" class="btn btn-danger mb-3">Obriši</button>
+        </form>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+</body>
+</html>
